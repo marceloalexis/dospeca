@@ -112,6 +112,51 @@ body.is-menu-open{
 			font-size: 20px;
 		}
 	}
+	&__wrapper-preloader{
+		.b-home__wrapper-logo{
+			display: flex;
+			width: 100%;
+			min-height: 100vh;
+			overflow: hidden;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin: 0;			
+		}
+	}
+	&__wrapper-loader-animation{
+		img{
+			display: inline-block;
+		}
+	}
+	&__bomb{
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+		border-radius: 30px;
+		background: $color-blue;
+		animation-name: punto;
+		animation-duration: .6s;
+		animation-iteration-count: infinite;
+	}
+	@keyframes punto {
+		0%{
+			transform: translateY(0);
+			height: 25px;
+		}
+		50%{
+			transform: translateY(-20px);
+			height: 25px;
+		}
+		90%{
+			transform: translateY(0);
+			height: 20px;
+		}
+		100%{
+			transform: translateY(0);
+			height: 25px;			
+		}
+	}
 	&__wrapper-logo{
 		margin-top: 20px;
 		h1{

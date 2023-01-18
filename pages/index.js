@@ -16,12 +16,12 @@ const Home = ({id, posts, home}) =>{
   const titleVariants = {
     initial: {y: '200%'},
     animate: {y: '0%'},
-    exit: {y:'-110%'}
+    exit: {y:'-100%'}
   };
   const titleCountry = {
     initial: {y: '200%', opacity: 0},
     animate: {y: '0%', opacity: 1},
-    exit: {y:'-110%', opacity: 0}
+    exit: {y:'-100%', opacity: 0}
   };
   const lineVariants = {
     initial: {width: '0%'},
@@ -29,9 +29,9 @@ const Home = ({id, posts, home}) =>{
     exit: {width:'0%'}
   };
   const preloadVariants = {
-    initial: {y: '0%'},
-    animate: {y: '-100%'},
-    exit: {y:'-100%'}
+    initial: {opacity: '100%'},
+    animate: {opacity: '0%'},
+    exit: {opacity:'0%'}
   };
   return(
 
@@ -50,15 +50,16 @@ const Home = ({id, posts, home}) =>{
                 animate="animate"
                 exit="exit"
                 variants={preloadVariants}
-                transition={{ duration: .6, delay:2, ease: easing }}
+                transition={{ duration: .6, delay:1.5, ease: easing }}
               >
                             <div className={`${p}__wrapper-logo`}>
-            <h1><Image
-              src={'/dospeca-logo.png'}
-              width={'150'}
+            <div className={`${p}__wrapper-loader-animation`}>
+              <Image
+              src={'/de.png'}
+              width={'120'}
               height={'54'}
               alt={'Dospeca'}
-            /></h1>
+            /><span className={`${p}__bomb`}></span></div>
           </div>       
       </m.div>
      

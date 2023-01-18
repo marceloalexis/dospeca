@@ -282,8 +282,16 @@ const Home = ({id, posts, home}) =>{
       </OContainer>
       </div>
       <div className={`${p}__wrapper-video`}>
+        <div className={`${p}__poster-video`}>
+          <Image 
+            src={'/liq.jpg'}
+            height={'1200'}
+            width={'500'}
+            alt={'poster'}
+          />
+        </div>
       <video muted autoPlay loop>
-        <source poster={'./liq.png'} src={'./video-vf.webm'} type="video/webm" />
+        <source poster={'./liq.jpg'} src={'./video-vf.webm'} type="video/webm" />
       </video>
       </div>
     </div>

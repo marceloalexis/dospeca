@@ -5,7 +5,6 @@ export const MainContext = createContext()
 export const MainProvider = ({ globalData, children }) => {
 
 	const [menuOpen, setMenuOpen ] = useState(false);
-	const [allFontsLoaded, setAllFontsLoaded] = useState(false);
 	const isMenuOpenClass = 'is-menu-open';
 	const [windowSize, setWindowSize] = useState({
 		width: undefined,
@@ -14,13 +13,6 @@ export const MainProvider = ({ globalData, children }) => {
 
 
 	const [scrollInstance, setScrollInstance] = useState(null);
-
-	useEffect(() => {
-
-		document.fonts.ready.then(function(){
-			setAllFontsLoaded(true);
-		});
-	}, []);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -61,7 +53,6 @@ export const MainProvider = ({ globalData, children }) => {
 			value={{
 				menuOpen,
 				setMenuOpen,
-				allFontsLoaded,
 				windowSize,
 				scrollInstance,
 				setScrollInstance,

@@ -25,10 +25,31 @@ body.is-menu-open{
 }
 //----------------------------------Home
 .b-home{
+	&__wrapper-preloader{
+		width: 100%;
+		height: 100vh;
+		background: $color-black;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 999999999;
+	}
+	.item-home{
+		padding: 0;
+		@include md{
+			padding: 10px 0;
+		}
+	}
+	.wr-legal{
+		position: relative;
+		overflow: hidden;		
+	}
 	.country{
-		margin-bottom: 35px;
+		position: relative;
+		overflow: hidden;
+		margin: 20px 0 0 0;
 		ul li{
-			font-size: 13px;
+			font-size: 14px;
 		}
 		@include md{
 			font-size: 16px;
@@ -77,17 +98,18 @@ body.is-menu-open{
 			}
 		}
 		h4{
-			font-weight: 900;
+			font-weight: 700;
 		}
 		@include md{
-			padding: 40px 0;
+			margin: 40px 0;
 		}
 	}
 	&__tagline{
-		font-weight: 900;
-		font-size: 20px;
+		font-weight: 700;
+		font-size: 17px;
 		@include md{
 			font-size: 25px;
+			font-size: 20px;
 		}
 	}
 	&__wrapper-logo{
@@ -112,16 +134,18 @@ body.is-menu-open{
 		overflow: hidden;
 		position: relative;
 		display: block;
-		margin-bottom: 20px;
+		margin-bottom: 0;
 		margin-top: 0x;
 		@include md{
-			margin-top: -54px;			
+			margin-top: -54px;
+			margin-bottom: 20px;			
 		}
 	}
 	&__wrapper-button{
 		margin-top: 10px;
 		text-align: right;
 		button{
+			cursor: pointer;
 			background: $color-blue;
 			color: $color-white;
 			padding: 15px 20px;

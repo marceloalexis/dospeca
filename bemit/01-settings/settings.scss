@@ -42,7 +42,7 @@ $color-grafito: #f0f0f0;
 
 	//FONTS
 
-	$font-a : 'Circular Pro', sans-serif;
+	$font-a : 'rubik', sans-serif;
 	$a-transition: all ease .4s;
 	$padding-bottom-default: 20px;
 	$container__width		: 1120px;
@@ -81,11 +81,11 @@ $font-list-menu: (
 );	
 $font-title-home: (
 	sm:  (
-			font-size		: 65px,
+			font-size		: 50px,
 			line-height 	: 60px,
 			letter-spacing  : 0px,
 			font-family		: $font-a,
-			font-weight 	: 900,
+			font-weight 	: 700,
 			font-style 		: normal
 		),
 	md:	 (

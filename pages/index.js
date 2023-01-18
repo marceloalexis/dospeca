@@ -29,9 +29,9 @@ const Home = ({id, posts, home}) =>{
     exit: {width:'0%'}
   };
   const preloadVariants = {
-    initial: {opacity: '100%'},
-    animate: {opacity: '0%'},
-    exit: {opacity:'0%'}
+    initial: {y: '0'},
+    animate: {y: '-100%'},
+    exit: {y:'0%'}
   };
   return(
 

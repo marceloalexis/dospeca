@@ -138,23 +138,28 @@ body.is-menu-open{
 		animation-name: punto;
 		animation-duration: .6s;
 		animation-iteration-count: infinite;
+		transition: all ease;
 	}
 	@keyframes punto {
 		0%{
 			transform: translateY(0);
 			height: 25px;
+					transition: all ease;
 		}
 		50%{
 			transform: translateY(-20px);
 			height: 25px;
+					transition: all ease;
 		}
 		90%{
 			transform: translateY(0);
 			height: 20px;
+					transition: all ease;
 		}
 		100%{
 			transform: translateY(0);
-			height: 25px;			
+			height: 25px;
+					transition: all ease;			
 		}
 	}
 	&__wrapper-logo{

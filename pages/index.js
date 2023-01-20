@@ -1,10 +1,12 @@
-import React from "react"
+import React, { use } from "react"
 import Head from "next/head";
 import OCol from "../bemit/07-objects/o-col/o-col.js"
 import OContainer from "../bemit/07-objects/o-container/o-container.js"
 import BLayout from "../bemit/08-blocks/b-layout/b-layout.js"
 import { m } from 'framer-motion';
 import PAGE_TRANSITION from '../utils/pageTransitionsVars'
+import useIsTouchDevice from '../hooks/useIsTouchDevice'
+import parallaxNode from '../utils/parallaxNode'
 import Link from "next/link.js";
 import Image from "next/image.js";
 
@@ -33,6 +35,31 @@ const Home = ({id, posts, home}) =>{
     animate: {y: '-100%'},
     exit: {y:'0%'}
   };
+
+  const isMouseEnterClass = 'is-mouse-enter';
+  const isTouch = useIsTouchDevice();
+
+  const handlerMouseEnter = e => {
+    e.currentTarget.classList.add(isMouseEnterClass);
+  }
+
+  const handlerMouseLeave = e => {
+    e.currentTarget.classList.remove(isMouseEnterClass);
+  }
+
+  const handlerMouseMove = e => {
+    e.currentTarget.classList.add(isMouseEnterClass);
+    const wrapperImage =e.currentTarget.getElementsByClassName(`js-para`)[0];
+    if(wrapperImage) parallaxNode(e, wrapperImage, -20)
+  }
+
+  const mouseEvents = (!isTouch) ?
+  {
+    onMouseEnter : handlerMouseEnter,
+    onMouseLeave : handlerMouseLeave,
+    onMouseMove : handlerMouseMove
+  } : null;
+
   return(
 
 <BLayout>
@@ -50,16 +77,10 @@ const Home = ({id, posts, home}) =>{
                 animate="animate"
                 exit="exit"
                 variants={preloadVariants}
-                transition={{ duration: .6, delay:1.5, ease: easing }}
+                transition={{ duration: .85, delay:2, ease: easing }}
               >
                             <div className={`${p}__wrapper-logo`}>
-            <div className={`${p}__wrapper-loader-animation`}>
-              <Image
-              src={'/de.png'}
-              width={'120'}
-              height={'54'}
-              alt={'Dospeca'}
-            /><span className={`${p}__bomb`}></span></div>
+            <div className={`${p}__wrapper-loader-animation`}><span className={`${p}__bomb`}></span></div>
           </div>       
       </m.div>
      
@@ -74,16 +95,16 @@ const Home = ({id, posts, home}) =>{
             /></h1>
           </div>
         </OCol>
-        <OCol p={p} cols={{sm: 2, lg:6}}>
-          <div className={`${p}__wrapper-button`}>
-            <Link href={'https://wa.link/b6p4lb/'}><button >Whatsapp</button></Link>
+        <OCol p={p} cols={{sm: 2, lg:6}} >
+          <div className={`${p}__wrapper-button`} >
+            <Link href={'https://wa.link/b6p4lb/'}><button>Whatsapp</button></Link>
           </div>
         </OCol>
       </OContainer>
 
       <OContainer p={p} extraClasses={`${p}__content`}>
-      <OCol p={p} cols={{sm:4, lg:5}}>
-        <div className={`${p}__wrapper item-home`}>
+      <OCol p={p} cols={{sm:4, lg:4}}>
+        <div className={`${p}__wrapper item-home`} {...mouseEvents}>
         <div className={`${p}__wrapper-subtitle`}>
         <m.div
                 key={`detail-project-${id}-subtitle`}
@@ -92,7 +113,7 @@ const Home = ({id, posts, home}) =>{
                 exit="exit"
                 variants={titleVariants}
                 transition={{ duration: TOTAL_TIME, delay:2.3, ease: easing }}
-              ><span className={`${p}__tagline`} >We connect with people</span></m.div></div>
+              ><span className={`${p}__tagline`}>We connect with people</span></m.div></div>
           <div className={`${p}__wrapper-title`}>
           <m.div
                 key={`detail-project-${id}-subtitle`}
@@ -102,10 +123,15 @@ const Home = ({id, posts, home}) =>{
                 variants={titleVariants}
                 transition={{ duration: TOTAL_TIME, delay:2.3, ease: easing }}
               ><h2 className={`o-font-title-home`}>Branding</h2></m.div></div>
+          <div className={`${p}__wrapper-video-item js-para`}>
+            <video muted autoPlay loop>
+              <source  src={'./rrss.webm'} type="video/webm" />
+            </video>
+          </div>
         </div>
       </OCol>
       <OCol p={p} cols={{sm:4, lg:4}}>
-      <div className={`${p}__wrapper item-home`}>
+      <div className={`${p}__wrapper item-home`} {...mouseEvents}>
       <div className={`${p}__wrapper-title`}>
       <m.div
                 key={`detail-project-${id}-subtitle`}
@@ -115,10 +141,15 @@ const Home = ({id, posts, home}) =>{
                 variants={titleVariants}
                 transition={{ duration: TOTAL_TIME, delay: 2.6, ease: easing }}
               ><h2 className={`o-font-title-home`}>UX/UI</h2></m.div></div>
+        <div className={`${p}__wrapper-video-item js-para`}>
+          <video muted autoPlay loop>
+              <source  src={'./uxui.webm'} type="video/webm" />
+          </video>
+        </div>
       </div>  
       </OCol>
-      <OCol p={p} cols={{sm:4, lg:3}}>
-      <div className={`${p}__wrapper item-home`}>
+      <OCol p={p} cols={{sm:4, lg:4}}>
+      <div className={`${p}__wrapper item-home`} {...mouseEvents}>
       <div className={`${p}__wrapper-title`}>
       <m.div
                 key={`detail-project-${id}-subtitle`}
@@ -129,6 +160,11 @@ const Home = ({id, posts, home}) =>{
                 transition={{ duration: TOTAL_TIME, delay: 2.9, ease: easing }}
               >
         <h2 className={`o-font-title-home`}>RRSS</h2></m.div></div>
+        <div className={`${p}__wrapper-video-item js-para`}>
+          <video muted autoPlay loop>
+              <source  src={'./rrss.webm'} type="video/webm" />
+          </video>
+        </div>
       </div>
       </OCol>
       </OContainer>
@@ -223,8 +259,8 @@ const Home = ({id, posts, home}) =>{
                 transition={{ duration: TOTAL_TIME, delay: 2.68, ease: easing }}>
             <h4>Hablemos</h4>
             <ul>
-              <li>hola@dospeca.com</li>
-              <li>(+34) 625 788 094</li>
+              <li><Link href={'mailto:hola@dospeca.com'}>hola@dospeca.com</Link></li>
+              <li><Link href={'tel://+34625788094'}>(+34) 625 788 094</Link></li>
             </ul>
           </m.div>
           </div>

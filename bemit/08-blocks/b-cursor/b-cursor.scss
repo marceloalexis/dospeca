@@ -3,7 +3,7 @@
 
 	@include a-prepare-debug();
 
-	--size: 28px;
+	--size: 30px;
 	position: fixed;
 	width: var(--size);
 	height: var(--size);
@@ -13,8 +13,7 @@
 	transform: translate(var(--cursor-x, -100px), var(--cursor-y, -100px)) translateZ(0);
 	pointer-events: none;
 	transition: none;
-	z-index: 999999999;
-
+	z-index: 9;
 
 	will-change: transform;
 
@@ -27,9 +26,7 @@
 		transition: all 0.09s ease-in;
 		opacity: 1;
 		transform: scale(1) translateZ(0);
-		background-color: rgba(0,0,0,0.4);
-		-webkit-backdrop-filter: blur(.8px) saturate(2);
-		backdrop-filter: blur(.8px) saturate(2);
+		background-color: transparent;
 	}
 
 	&.is-hidden &__inner{
@@ -37,10 +34,8 @@
 	}
 
 	&.is-link-hovered &__inner{
-		transform: scale(3) translateZ(0);
-		-webkit-backdrop-filter: blur(.8px) saturate(2);
-		backdrop-filter: blur(.8px) saturate(2);
-				transition: all 0.09s ease-in;
+		transform: scale(0.6) translateZ(0);
+		transition: all 0.09s ease-in;
 	}
 	&.is-clicked &__inner{
 		transform: scale(1.5) translateZ(0);

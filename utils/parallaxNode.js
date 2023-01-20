@@ -5,7 +5,7 @@ const parallaxNode = (e, target, movement) => {
 	var relX = e.clientX - nodeBounds.left;
 	var relY = e.clientY - nodeBounds.top;
 	gsap.to(target,{
-		duration: 1,
+		duration: 1.5,
 		x: (relX - nodeBounds.width / 2 ) / nodeBounds.width * movement,
 		y: (relY - nodeBounds.height / 2 ) / nodeBounds.height * movement
 	});

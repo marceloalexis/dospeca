@@ -37,13 +37,19 @@ body.is-menu-open{
 	}
 	.item-home{
 		padding: 0;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		@include md{
 			padding: 10px 0;
+			align-items: center;
 		}
 	}
 	.wr-legal{
 		position: relative;
-		overflow: hidden;		
+		overflow: hidden;
+		margin: 10px 0 40px 0;		
 	}
 	.country{
 		position: relative;
@@ -123,7 +129,8 @@ body.is-menu-open{
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			margin: 0;			
+			margin: 0;
+			z-index: 99999;			
 		}
 	}
 
@@ -165,6 +172,56 @@ body.is-menu-open{
 					transition: all ease;			
 		}
 	}
+	&__wrapper-video-item{
+		opacity: 0;
+		width: 100%;
+		position: absolute;
+		display: block;
+		transition: ease opacity .4s;
+		@include sm{
+			video{
+				display: none;
+			}			
+		}
+		@include md{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		@include lg{
+			video{
+				display: block;
+				width: 80%;
+				-webkit-box-shadow: 0px 0px 100px -22px rgba(0,43,255,1);
+				-moz-box-shadow: 0px 0px 100px -22px rgba(0,43,255,1);
+				box-shadow: 0px 0px 100px -22px rgba(0,43,255,1);
+			}
+		}
+		@include xl{
+			top: -15vh;
+			video{
+				width: 90%;
+			}
+		}
+		@include xxl{
+			top: -16vh;
+			video{
+				width: 80%;
+			}
+		}
+	}
+	.is-mouse-enter &__wrapper-video-item{
+		opacity: 1;
+		transition: ease opacity .4s;
+	}
+	.item-home:hover &__wrapper-title h2{
+		mix-blend-mode: difference;
+		will-change: transform;
+		transition: ease all .2s;
+		opacity: 0.6;
+		color: transparent;
+		-webkit-text-stroke: 1px white;
+	}
 	&__wrapper-logo{
 		margin-top: 20px;
 		h1{
@@ -178,12 +235,14 @@ body.is-menu-open{
 		display: block;
 		padding-bottom: 5px;
 		padding-top: 10px;
+		z-index: 2;
 		@include md{
 			padding-bottom: 25px;
-			padding-top: 10px;			
+			padding-top: 20px;			
 		}
 	}
 	&__wrapper-subtitle{
+		width: 100%;
 		overflow: hidden;
 		position: relative;
 		display: block;

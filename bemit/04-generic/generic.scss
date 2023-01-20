@@ -23,12 +23,19 @@ body.is-menu-open{
 .display-none{
 	display: none;
 }
+.d-none-m{
+	display: none;
+	@include md{
+		display: block;
+	}
+}
+
 //----------------------------------Home
 .b-home{
 	&__wrapper-preloader{
 		width: 100%;
 		min-height: 100vh;
-		min-height: calc(var(--vh, 1vh) * 100);
+		height: calc(var(--vh, 1vh) * 100);
 		background: $color-black;
 		position: absolute;
 		top: 0;
@@ -49,12 +56,12 @@ body.is-menu-open{
 	.wr-legal{
 		position: relative;
 		overflow: hidden;
-		margin: 10px 0 40px 0;		
+		margin: 10px 0 10px 0;		
 	}
 	.country{
 		position: relative;
 		overflow: hidden;
-		margin: 20px 0 0 0;
+		margin: 10px 0 0 0;
 		ul li{
 			font-size: 14px;
 		}
@@ -303,8 +310,8 @@ body.is-menu-open{
 		position:absolute;
 		z-index: 1;
 		width: 100%;
-		min-height: 100vh;
-		min-height: calc(var(--vh, 1vh) * 100);
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
 		background: rgb(0 0 0 / 51%);
 		z-index: 9999999999;
 		display: flex;

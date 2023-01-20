@@ -283,7 +283,7 @@ const Home = ({id, posts, home}) =>{
           </m.div>
           </div>
         </OCol>
-        <OCol cols={{sm:4, lg:3}}>
+        <OCol cols={{sm:4, lg:3}} extraClasses={'d-none-m'}>
           <div className={`${p}__wrapper wr-legal`}>
           <m.div
                   key={`detail-project-${id}-subtitle`}
